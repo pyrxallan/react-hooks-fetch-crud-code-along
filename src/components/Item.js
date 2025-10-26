@@ -1,6 +1,11 @@
 import React from "react";
 
 function Item({ item }) {
+
+  function handleAddToCartClick() {
+    console.log("clicked item:", item);
+  }
+
   return (
     <li className={item.isInCart ? "in-cart" : ""}>
       <span>{item.name}</span>
