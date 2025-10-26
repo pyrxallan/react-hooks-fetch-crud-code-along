@@ -28,6 +28,10 @@ function ShoppingList() {
   setItems([...items, newItem]);
   }
 
+  function handleUpdateItem(updatedItem) {
+    console.log("In ShoppingCart:", updatedItem);
+  }
+
   return (
     <div className="ShoppingList">
       <ItemForm onAddItem={handleAddItem} />
