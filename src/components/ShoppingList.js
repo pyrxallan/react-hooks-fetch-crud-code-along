@@ -24,9 +24,13 @@ function ShoppingList() {
       .then((items) => setItems(items));
   }, []);
 
+  function handleAddItem(newItem) {
+    console.log("In shopping list:", newItem);
+  }
+
   return (
     <div className="ShoppingList">
-      <ItemForm />
+      <ItemForm onAddItem={handleAddItem} />
       <Filter
         category={selectedCategory}
         onCategoryChange={handleCategoryChange}
