@@ -17,6 +17,10 @@ function ShoppingList() {
     return item.category === selectedCategory;
   });
 
+  function handleDeleteItem(deletedItem) {
+    console.log("In ShoppingCart:", deletedItem);
+  }
+
   // Add useEffect hook
   useEffect(() => {
     fetch("http://localhost:4000/items")
@@ -48,7 +52,12 @@ function ShoppingList() {
       />
       <ul className="Items">
         {itemsToDisplay.map((item) => (
-          <Item key={item.id} item={item} onUpdateItem={handleUpdateItem} />
+          <Item 
+          key={item.id} 
+          item={item} 
+          onUpdateItem={handleUpdateItem}
+          onDeleteItem={handleDeleteItem}
+          />
         ))}
       </ul>
     </div>
