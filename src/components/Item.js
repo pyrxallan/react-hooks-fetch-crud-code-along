@@ -1,6 +1,6 @@
 import React from "react";
 
-function Item({ item, onUpdateItem }) {
+function Item({ item, onUpdateItem, onDeleteItem }) {
 
   function handleAddToCartClick() {
     fetch(`http://localhost:4000/items/${item.id}`, {
@@ -21,7 +21,7 @@ function Item({ item, onUpdateItem }) {
     method: "DELETE",
   })
     .then((r) => r.json())
-    .then(() => console.log("deleted!"));
+    .then(() => onDeleteItem(item));
   }
 
   return (
@@ -34,7 +34,12 @@ function Item({ item, onUpdateItem }) {
         >
         {item.isInCart ? "Remove From" : "Add to"} Cart
       </button>
-      <button className="remove">Delete</button>
+      <button 
+        className="remove" 
+        onClick={handleDeleteClick}
+        >
+        Delete
+      </button>
     </li>
   );
 }

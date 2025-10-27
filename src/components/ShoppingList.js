@@ -18,7 +18,8 @@ function ShoppingList() {
   });
 
   function handleDeleteItem(deletedItem) {
-    console.log("In ShoppingCart:", deletedItem);
+  const updatedItems = items.filter((item) => item.id !== deletedItem.id);
+  setItems(updatedItems);
   }
 
   // Add useEffect hook
